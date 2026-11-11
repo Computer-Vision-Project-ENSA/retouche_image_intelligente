@@ -3,7 +3,7 @@ Module de configuration pour le projet : Retouche d'image intelligente (RDI).
 Exemple de structure de configuration (TP1 - DevOps & MLOps).
 """
 
-PROJECT_NAME = "Retouche d'image intelligente"
+PROJECT_NAME = "Retouche d'image intelligente (suppression d’objet)"
 JIRA_PROJECT_KEY = "RDI"
 
 # Paramètres de prétraitement des images (Tâche Jira : RDI-20)
