@@ -1,0 +1,7 @@
+-r backend/requirements.txt
+-r frontend/requirements.txt
+
+pytest
+pytest-cov
+ruff
+httpx

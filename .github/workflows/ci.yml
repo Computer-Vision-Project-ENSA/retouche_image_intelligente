@@ -1,0 +1,33 @@
+
+name: CI - Tests
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Run Python Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -r backend/requirements.txt
+          python -m pip install -r frontend/requirements.txt
+          python -m pip install pytest httpx
+
+      - name: Run tests
+        run: |
+          python -m pytest backend/tests frontend/tests -v
