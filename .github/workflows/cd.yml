@@ -1,5 +1,5 @@
 
-name: CD - Docker
+name: Deploy
 
 on:
   push:
@@ -9,8 +9,12 @@ permissions:
   contents: read
   packages: write
 
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
 jobs:
-  publish:
+  deploy:
     name: Build and Publish Docker
     runs-on: ubuntu-latest
 
