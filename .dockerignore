@@ -1,0 +1,27 @@
+# Git
+.git
+.github
+
+# Python
+.venv/
+__pycache__/
+**/__pycache__/
+.pytest_cache/
+**/.pytest_cache/
+*.pyc
+
+# React / Node.js
+**/node_modules/
+frontend/dist/
+
+# Environment variables
+.env
+.env.*
+
+# Machine Learning
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+ml/data/
+ml/notebooks/
