@@ -1,5 +1,5 @@
 
-# Stage 1: Build React frontend
+# Stage 1: Build React
 FROM node:22-alpine AS frontend-builder
 
 WORKDIR /app/frontend
@@ -11,7 +11,7 @@ COPY frontend/ ./
 RUN npm run build
 
 
-# Stage 2: FastAPI application
+# Stage 2: Run FastAPI + React
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -25,12 +25,13 @@ RUN pip install --no-cache-dir \
 # Copy backend
 COPY backend/ backend/
 
-# Copy React production build
+# Copy compiled React frontend
 COPY --from=frontend-builder \
     /app/frontend/dist /app/frontend/dist
 
-# FastAPI serves React and API on the same port
+# Expose application port
 EXPOSE 7860
 
+# Start FastAPI
 CMD ["uvicorn", "backend.app.main:app", \
      "--host", "0.0.0.0", "--port", "7860"]
