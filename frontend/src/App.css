@@ -1,0 +1,370 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #0b1020;
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 8%;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.navbar a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.eyebrow {
+  color: #a5b4fc;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+h1 {
+  font-size: clamp(46px, 7vw, 88px);
+  line-height: 1.1;
+  margin: 24px 0;
+}
+
+h1 span {
+  color: #a5b4fc;
+}
+
+.hero p {
+  max-width: 590px;
+  color: #94a3b8;
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+button {
+  margin-top: 28px;
+  padding: 17px 32px;
+  border: none;
+  border-radius: 12px;
+  background: #6366f1;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+.message {
+  margin-top: 25px;
+  color: #86efac;
+}
+
+footer {
+  padding: 25px;
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Tablettes */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 22px 5%;
+  }
+
+  .hero {
+    padding: 60px 6%;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: clamp(38px, 8vw, 64px);
+  }
+}
+
+/* Téléphones */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .hero {
+    padding: 45px 20px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* Navigation */
+.brand-button {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.brand-button:hover {
+  background: transparent;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links button {
+  margin: 0;
+  padding: 8px 0;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.nav-links button:hover,
+.nav-links .nav-active {
+  background: transparent;
+  color: #a5b4fc;
+}
+
+/* Page équipe */
+.team-page {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 75px 5% 90px;
+  text-align: center;
+}
+
+.team-page h1 {
+  font-size: clamp(36px, 5vw, 62px);
+  margin: 18px 0;
+}
+
+.team-page h1 span {
+  color: #a5b4fc;
+}
+
+.team-intro {
+  max-width: 650px;
+  margin: 0 auto 55px;
+  color: #94a3b8;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Cartes des membres */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.member-card {
+  min-width: 0;
+  padding: 35px 20px;
+  border: 1px solid #252d45;
+  border-radius: 20px;
+  background: #11182b;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.member-card:hover {
+  transform: translateY(-6px);
+  border-color: #6366f1;
+}
+
+.member-avatar {
+  width: 110px;
+  height: 110px;
+  display: block;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 3px solid #6366f1;
+}
+
+.member-card h2 {
+  font-size: 19px;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+.member-card p {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 25px;
+}
+
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #a5b4fc;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.linkedin-link:hover {
+  color: white;
+}
+
+.linkedin-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 4px;
+  background: #0a66c2;
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Contact */
+.contact-section {
+  max-width: 700px;
+  margin: 75px auto 0;
+  padding: 45px 30px;
+  background: #151c32;
+  border: 1px solid #252d45;
+  border-radius: 22px;
+}
+
+.contact-section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.contact-section p {
+  color: #94a3b8;
+  line-height: 1.8;
+}
+
+.primary-button {
+  display: inline-block;
+  padding: 17px 32px;
+  border: 0;
+  border-radius: 12px;
+  background: #6366f1;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: #4f46e5;
+}
+
+.contact-button {
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    gap: 12px;
+    padding: 20px 5%;
+  }
+
+  .brand-button {
+    font-size: 17px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links button {
+    font-size: 13px;
+  }
+
+  .team-page {
+    padding: 55px 5% 65px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .team-intro {
+    font-size: 15px;
+  }
+
+  .contact-section {
+    margin-top: 45px;
+    padding: 30px 20px;
+  }
+
+  .contact-section h2 {
+    font-size: 24px;
+  }
+}
