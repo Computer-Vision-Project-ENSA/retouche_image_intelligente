@@ -1,9 +1,24 @@
+# Git
 .git
 .github
-.venv
-__pycache__
-.pytest_cache
+
+# Python
+.venv/
+__pycache__/
+**/__pycache__/
+.pytest_cache/
+**/.pytest_cache/
 *.pyc
+
+# React / Node.js
+**/node_modules/
+frontend/dist/
+
+# Environment variables
+.env
+.env.*
+
+# Machine Learning
 *.pth
 *.pt
 *.ckpt

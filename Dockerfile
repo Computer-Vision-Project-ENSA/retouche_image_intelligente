@@ -1,25 +1,37 @@
 
+# Stage 1: Build React
+FROM node:22-alpine AS frontend-builder
+
+WORKDIR /app/frontend
+
+COPY frontend/package*.json ./
+RUN npm ci
+
+COPY frontend/ ./
+RUN npm run build
+
+
+# Stage 2: Run FastAPI + React
 FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install dependencies
+# Install backend dependencies
 COPY backend/requirements.txt backend/requirements.txt
-COPY frontend/requirements.txt frontend/requirements.txt
 
 RUN pip install --no-cache-dir \
-    -r backend/requirements.txt \
-    -r frontend/requirements.txt
+    -r backend/requirements.txt
 
-# Copy application code
+# Copy backend
 COPY backend/ backend/
-COPY frontend/ frontend/
 
-# Configure Gradio -> FastAPI communication
-ENV API_URL=http://127.0.0.1:7860/api/process
+# Copy compiled React frontend
+COPY --from=frontend-builder \
+    /app/frontend/dist /app/frontend/dist
 
+# Expose application port
 EXPOSE 7860
 
-# Start the application
+# Start FastAPI
 CMD ["uvicorn", "backend.app.main:app", \
      "--host", "0.0.0.0", "--port", "7860"]
