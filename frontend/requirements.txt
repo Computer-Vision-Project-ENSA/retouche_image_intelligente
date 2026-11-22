@@ -1,4 +1,0 @@
-gradio
-numpy
-pillow
-requests
